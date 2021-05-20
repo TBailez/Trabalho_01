@@ -34,7 +34,7 @@ elif t.upper() == 'B':
     at.columns = ['IDADE', 'BR-EMSmt-v.2015-F', 'BR-EMSmt-v.2015-M']
     at.dropna(inplace=True)
     at = at.iloc[1:]
-    at = at[:-1]
+    #at = at[:-1]
     tam = len(at['IDADE'])
     while True:
         g = input("Selecione o gênero com F ou M?\n")
