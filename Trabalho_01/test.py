@@ -5,14 +5,40 @@ df = pd.read_excel('tabuas.xlsx')
 
 dfc = df.columns
 
-#taxa de juros
-j = 0.01
-
 #contador para funções while
 c = 0
+#%%
+#Selecionar o gênero
+while True:
+    g = input("F OU M?\n")
+ 
+    if g.upper() == 'F':
+        s = 'AT-2000-F'
+        break
 
-#população inicial
-l0 = 10000000
+    elif g.upper()== 'M':
+        s = 'AT-2000-M'
+        break
+    else:
+        print('Tente selecionar m ou f')
+# %%  
+#Selecionar a taxa de juros
+while True:      
+    i = input('Qual a taxa de juros?\n')
+    try:
+        j = float(i)
+        break
+    except ValueError:
+        print('Tente colocar um número')
+# %%
+#Selecionar a população inicial
+while True:      
+    l = input('Qual a população inicial?\n')
+    try:
+        l0 = float(l)
+        break
+    except ValueError:
+        print('Tente colocar um número')
 
 #lista de colunas para adicionar ao dataframe
 col_list = ['lx', 'dx','v^x','Dx','Nx','Cx','Mx']
@@ -61,7 +87,7 @@ while c < 116:
     at['Mx'].iloc[c] = at['Cx'].iloc[c:116].sum()
     c +=1
     
-    
+
 #%%
 brems15 = pd.DataFrame(df, columns = ['TÁBUA','BR-EMSmt-v.2015-f','BR-EMSmt-v.2015-m'])
 brems15.columns = ['IDADE', 'BR-EMSmt-v.2015-F', 'BR-EMSmt-v.2015-M']
