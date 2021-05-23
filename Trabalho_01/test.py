@@ -104,7 +104,11 @@ while c < tam:
     
 # %%
 #preencher os valores em Cx e Mx
-at['Cx'] = at['dx'] * at['v^x']
+c = 0
+while c < tam_2:
+    at['Cx'].iloc[c] = at['dx'].iloc[c] * at['v^x'].iloc[c+1]
+    c += 1
+    
 
 
 at['Mx'].iloc[0] = at['Cx'].sum()
